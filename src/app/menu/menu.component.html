@@ -1,0 +1,7 @@
+<p>menu works!</p>
+<section> 
+    <button *ngIf="!isUserAuthenticated" class="btn btn-link" style="color:gray" (click)="login()">Login</button>
+    <button *ngIf="isUserAuthenticated" class="btn btn-link" style="color:gray" (click)="logout()">Logout</button>
+    <button class="btn btn-link" style="color:gray" (click)="getDataFromApi()">Get Data</button>
+    <p [textContent]="dataFromApi"></p>
+  </section>
