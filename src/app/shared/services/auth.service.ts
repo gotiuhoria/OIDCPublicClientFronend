@@ -27,12 +27,11 @@ export class AuthService {
     }
   }
 
-  public login = () => {
+  public login() {
     return this._userManager.signinRedirect();
 }
 
-public isAuthenticated = (): Promise<boolean> => {
-  var localUser = this._userManager.getUser();
+public isAuthenticated() : Promise<boolean> {
   return this._userManager.getUser()
   .then(user => {
     if(this._user !== user){
@@ -44,7 +43,7 @@ public isAuthenticated = (): Promise<boolean> => {
   })
 }
 
-public finishLogin = (): Promise<User> => {
+public finishLogin() : Promise<User> {
   return this._userManager.signinRedirectCallback()
   .then(user => {
     this._user = user;
@@ -68,7 +67,7 @@ public getAccessToken = (): Promise<string | null> => {
   })
 }
 
-private checkUser = (user : User): boolean => {
+private checkUser(user : User) : boolean {
   return !!user && !user.expired;
 }
 
